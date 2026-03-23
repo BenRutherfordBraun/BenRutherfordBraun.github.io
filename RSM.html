@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rear Sensor Module | Formula E | Ben Rutherford-Braun</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .project-header { background: linear-gradient(135deg, #0d1117 0%, #161b22 100%); padding: 80px 0; border-bottom: 1px solid #30363d; }
+        .tech-card { background: #0d1117; border: 1px solid #30363d; transition: 0.3s; }
+        .code-window { background: #010409; border: 1px solid #30363d; border-radius: 6px; padding: 1.5rem; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; }
+        .system-highlight { color: #58a6ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">← BEN RUTHERFORD-BRAUN</a>
+        </div>
+    </nav>
+
+    <header class="project-header text-center">
+        <div class="container">
+            <span class="badge rounded-pill text-bg-primary mb-3">Formula E Student Team</span>
+            <h1 class="display-4 fw-bold">Rear Sensor Module (RSM)</h1>
+            <p class="lead text-secondary">High-speed data acquisition and CAN-Bus integration for vehicle dynamics.</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <h3 class="text-info mb-4">Project Definition</h3>
+                <p>The Rear Sensor Module (RSM) is a critical node in the car's control network. It is responsible for monitoring real-time telemetry from the rear suspension and drivetrain to optimize torque vectoring and traction control algorithms.</p>
+                
+                <div class="my-4">
+                    <img src="images/rsm_pcb_render.png" class="img-fluid rounded border border-secondary" alt="RSM PCB Render">
+                    <p class="text-center text-secondary small mt-2">3D Render of the RSM PCB designed in Altium</p>
+                </div>
+
+                <h3 class="text-info mt-5">Technical Challenges</h3>
+                <ul>
+                    <li><span class="system-highlight">EMI Mitigation:</span> Designing for a high-noise environment near the electric motors and inverters.</li>
+                    <li><span class="system-highlight">CAN-Bus Reliability:</span> Implementing a robust protocol to ensure zero packet loss during high-G maneuvers.</li>
+                    <li><span class="system-highlight">Real-Time Processing:</span> Handling interrupt-driven sensor sampling with sub-millisecond latency.</li>
+                </ul>
+
+                <h3 class="text-info mt-5">C++ Firmware Snippet</h3>
+                <p class="text-secondary">Below is the implementation of the CAN message packing for the RSM telemetry frame:</p>
+                <div class="code-window mb-4">
+                    <pre class="mb-0"><code class="text-success">
+// RSM Telemetry Frame Construction
+void RSM_Send_Status() {
+    CAN_Message_t msg;
+    msg.id = CAN_ID_RSM_STATUS;
+    msg.len = 8;
+
+    // Pack 12-bit sensor data into 8-byte payload
+    msg.data[0] = (uint8_t)(suspension_travel >> 4);
+    msg.data[1] = (uint8_t)((suspension_travel << 4) | (temp_sensor >> 8));
+    msg.data[2] = (uint8_t)(temp_sensor & 0xFF);
+
+    CAN_Transmit(&msg);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card tech-card p-4 sticky-top" style="top: 100px;">
+                    <h4 class="text-primary mb-3">Specifications</h4>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-2"><strong>Microcontroller:</strong> STM32F4 Series</li>
+                        <li class="mb-2"><strong>Communication:</strong> CAN 2.0B @ 1Mbps</li>
+                        <li class="mb-2"><strong>Inputs:</strong> 4x Analog, 2x Digital Hall Effect</li>
+                        <li class="mb-2"><strong>Power:</strong> 12V DC (Isolated)</li>
+                    </ul>
+                    
+                    <hr class="border-secondary">
+                    
+                    <h5 class="text-primary mt-3">Tools Used</h5>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        <span class="badge border border-info text-info">Altium Designer</span>
+                        <span class="badge border border-info text-info">C++</span>
+                        <span class="badge border border-info text-info">STM32CubeIDE</span>
+                        <span class="badge border border-info text-info">Oscilloscope</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-5 text-center border-top border-secondary mt-5">
+        <p class="text-secondary">Designed for the Ben Rutherford-Braun Engineering Portfolio</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
