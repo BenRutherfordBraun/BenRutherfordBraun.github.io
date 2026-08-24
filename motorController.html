@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor RPM Control Circuit | BRB Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section { padding: 60px 0; background: #1a1a1a; border-bottom: 1px solid #333; }
+        .content-section { padding: 60px 0; }
+        .project-image { border-radius: 8px; border: 1px solid #333; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .bullet-icon { color: #0dcaf0; margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary">
+        <div class="container">
+            <!-- Link back to your main index.html -->
+            <a class="navbar-brand" href="index.html">BRB Engineering</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html#projects">Back to Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-info">Motor RPM Control Circuit</h1>
+            <p class="lead text-secondary">Closed-loop analog motor regulation and signal conditioning</p>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-12">
+                    <h3 class="mb-3">Project Overview</h3>
+                    <p class="fs-5 text-light">
+                        I built a closed-loop motor control system that senses motor RPM using a phototransistor-LED pair, converts the signal into an analog voltage, and uses an error signal amplifier to regulate the current flow to the motor until it matches the voltage of the potentiometer.
+                    </p>
+                    
+                    <h4 class="mt-4 mb-3 text-info">Key Skills & Takeaways</h4>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Analog circuit design</strong>, including differential amplifiers, error signal amplifiers, comparators, and transistor-based motor drivers.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Signal conditioning techniques</strong> involving a comparator and Schmidt trigger inverter to convert the sinusoidal sensor input into a square wave response.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary border-bottom-0">
+                            <span class="bullet-icon">■</span> <strong>Practical electronics skills</strong>, such as breadboarding, troubleshooting with an oscilloscope, and using digital buses for counting.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <img src="image_edd24c.jpg" alt="Motor RPM Control Schematic and Breadboard Layout" class="img-fluid project-image w-100">
+                    <p class="text-secondary mt-3"><em>Circuit schematic (left) and final breadboard implementation highlighting distinct subsystem zones (right).</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4 text-center border-top border-secondary mt-auto">
+        <p class="mb-0 text-secondary">&copy; 2026 Ben Rutherford-Braun</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
