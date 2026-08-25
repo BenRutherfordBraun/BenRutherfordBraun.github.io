@@ -73,52 +73,52 @@
 
             <!-- Change 1: MCU -->
             <div class="row align-items-center feature-row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h4 class="text-light">Microcontroller Migration</h4>
                     <p class="text-secondary fs-5">
                         Upgraded the core architecture from an STM32F4 to an STM32H5 microcontroller. This transition provided enhanced processing capabilities for local IMU kinematics and integrated seamlessly with a dedicated CAN transceiver to guarantee robust, high-speed data transmission to the main vehicle control unit.
                     </p>
                 </div>
-                <div class="col-md-8 text-center">
+                <div class="col-md-6 text-center">
                     <img src="images/RSMMCU.png" alt="STM32H5 MCU Schematic" class="img-fluid project-image w-100">
                 </div>
             </div>
 
             <!-- Change 2: Buck Converters -->
             <div class="row align-items-center feature-row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h4 class="text-light">Power Delivery Optimization</h4>
                     <p class="text-secondary fs-5">
                         Redesigned the module's power delivery network by optimizing the topologies of the 5V and 3.3V buck converters. This revision significantly reduced heat generation and stabilized the voltage rails to ensure clean power delivery for sensitive onboard analog instrumentation.
                     </p>
                 </div>
-                <div class="col-md-8 text-center">
+                <div class="col-md-6 text-center">
                     <img src="images/RSMPower.png" alt="Buck Converter Schematic" class="img-fluid project-image w-100">
                 </div>
             </div>
 
             <!-- Change 3: USB -->
             <div class="row align-items-center feature-row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h4 class="text-light">USB Interface Integration</h4>
                     <p class="text-secondary fs-5">
                         Re-engineered the USB interface schematic to guarantee proper hardware-level enumeration and reliable serial communication with the newly integrated STM32H5 architecture, facilitating easier firmware deployment and diagnostic debugging.
                     </p>
                 </div>
-                <div class="col-md-8 text-center">
+                <div class="col-md-6 text-center">
                     <img src="images/RSMUSB.png" alt="USB Interface Schematic" class="img-fluid project-image w-100">
                 </div>
             </div>
 
             <!-- Change 4: Op Amp -->
             <div class="row align-items-center feature-row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h4 class="text-light">Analog Signal Conditioning</h4>
                     <p class="text-secondary fs-5">
                         During physical board testing, the operational amplifier was found to be clipping on the 5V rail. I resolved this hardware bug by rerouting the op-amp's power supply to the 24V rail, providing the necessary voltage headroom to capture the full analog signal range without distortion.
                     </p>
                 </div>
-                <div class="col-md-8 text-center">
+                <div class="col-md-6 text-center">
                     <img src="images/RSMOpAmp.png" alt="24V Op Amp Schematic" class="img-fluid project-image w-100">
                 </div>
             </div>
