@@ -12,6 +12,14 @@
         .bullet-icon { color: #0dcaf0; margin-right: 10px; }
         .feature-row { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid #2a2a2a; }
         .feature-row:last-of-type { border-bottom: none; margin-bottom: 2rem; }
+        
+        /* New class to lock the height of the top images */
+        .top-image { 
+            height: 350px; 
+            width: auto; 
+            max-width: 100%; 
+            object-fit: contain; 
+        }
     </style>
 </head>
 <body>
@@ -39,19 +47,20 @@
         <div class="container">
             
             <!-- Project Overview & Top Images -->
-            <div class="row mb-5">
+            <div class="row mb-5 justify-content-center">
                 <div class="col-lg-12 text-center mb-4">
                     <p class="fs-5 text-light text-start">
                         Designed and routed a custom embedded telemetry PCB for the UBC Formula SAE Electric racecar to aggregate rear-packaging data. The module processes onboard IMU kinematics and I2C suspension telemetry, broadcasting the data over the vehicle's CAN network while independently driving the brake lights.
                     </p>
                 </div>
                 
+                <!-- Applied the .top-image class and removed .w-100 -->
                 <div class="col-md-6 text-center">
-                    <img src="images/RSMImage.png" alt="3D PCB Render" class="img-fluid project-image w-100">
+                    <img src="images/RSMImage.png" alt="3D PCB Render" class="img-fluid project-image top-image">
                     <p class="text-secondary mt-3"><em>3D Board View</em></p>
                 </div>
                 <div class="col-md-6 text-center">
-                    <img src="images/RSMLayout.png" alt="PCB Layout with GND polygons hidden" class="img-fluid project-image w-100">
+                    <img src="images/RSMLayout.png" alt="PCB Layout with GND polygons hidden" class="img-fluid project-image top-image">
                     <p class="text-secondary mt-3"><em>PCB Routing (GND Polygons Disabled)</em></p>
                 </div>
             </div>
