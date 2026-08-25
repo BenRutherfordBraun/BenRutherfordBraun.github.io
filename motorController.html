@@ -10,6 +10,7 @@
         .content-section { padding: 60px 0; }
         .project-image { border-radius: 8px; border: 1px solid #333; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
         .bullet-icon { color: #0dcaf0; margin-right: 10px; }
+        .top-image { height: 350px; width: auto; max-width: 100%; object-fit: contain; }
     </style>
 </head>
 <body>
@@ -35,14 +36,57 @@
     <!-- Project Content -->
     <section class="content-section">
         <div class="container">
-            <div class="row align-items-center mb-5">
+            
+            <!-- Project Overview -->
+            <div class="row mb-5">
                 <div class="col-lg-12">
                     <h3 class="mb-3">Project Overview</h3>
                     <p class="fs-5 text-light">
                         I built a closed-loop motor control system that senses motor RPM using a phototransistor-LED pair, converts the signal into an analog voltage, and uses an error signal amplifier to regulate the current flow to the motor until it matches the voltage of the potentiometer.
                     </p>
-                    
-                    <h4 class="mt-4 mb-3 text-info">Key Skills & Takeaways</h4>
+                </div>
+            </div>
+
+            <!-- Dual Image Section (Moved to top under summary) -->
+            <div class="row g-4 mb-5 justify-content-center">
+                <div class="col-md-6 text-center">
+                    <img src="images/motorControllerSchematic.png" alt="Motor RPM Control Schematic" class="img-fluid project-image top-image">
+                    <p class="text-secondary mt-3"><em>Circuit Schematic</em></p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="images/motorControllerImage.png" alt="Motor RPM Control Breadboard Layout" class="img-fluid project-image top-image">
+                    <p class="text-secondary mt-3"><em>Final Breadboard Implementation</em></p>
+                </div>
+            </div>
+
+            <!-- How It Works Section -->
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <h3 class="mb-4 text-info">How It Works: Pure Hardware Control</h3>
+                    <p class="fs-5 text-light mb-4">
+                        This circuit controls the motor's speed using <strong>purely hardware—no software is involved</strong>. Here is the step-by-step breakdown of the control loop:
+                    </p>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Signal Conditioning:</strong> As the motor spins, an optical encoder generates a sinusoidal wave counting the rotations. The encoder output is routed through a specifically set comparator for signal conditioning, transforming the wave into a digital square wave.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Counting & Latching:</strong> The square wave increments a 256-bit counter. Separately, a 5Hz wave generates a LATCH pulse and a 10µs RESET pulse. These pulses latch the current count into the D-Latch and then immediately reset the counter.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Digital-to-Analog Conversion:</strong> The value stored in the Latch at any given time is converted into an analog signal by a resistor DAC (Digital-to-Analog Converter).
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary border-bottom-0">
+                            <span class="bullet-icon">■</span> <strong>PI Control & Regulation:</strong> The analog signal is routed through a buffer op-amp and an integrating op-amp to measure the error between the actual motor speed and the target speed set by the potentiometer. This PI control network accumulates error over time, causing a fluctuating current through the BJT that physically regulates the motor speed.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Skills & Takeaways Section -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="mb-3 text-info">Key Skills & Takeaways</h4>
                     <ul class="list-group list-group-flush bg-transparent">
                         <li class="list-group-item bg-transparent text-light border-secondary">
                             <span class="bullet-icon">■</span> <strong>Analog circuit design</strong>, including differential amplifiers, error signal amplifiers, comparators, and transistor-based motor drivers.
@@ -57,17 +101,6 @@
                 </div>
             </div>
 
-            <!-- Dual Image Section -->
-            <div class="row g-4 mt-2">
-                <div class="col-md-6 text-center">
-                    <img src="images/motorControllerSchematic.png" alt="Motor RPM Control Schematic" class="img-fluid project-image w-100">
-                    <p class="text-secondary mt-3"><em>Circuit Schematic</em></p>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="images/motorControllerImage.png" alt="Motor RPM Control Breadboard Layout" class="img-fluid project-image w-100">
-                    <p class="text-secondary mt-3"><em>Final Breadboard Implementation</em></p>
-                </div>
-            </div>
         </div>
     </section>
 
