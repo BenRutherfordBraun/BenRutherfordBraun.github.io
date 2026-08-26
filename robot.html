@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Mars Rover | BRB Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section { padding: 60px 0; background: #1a1a1a; border-bottom: 1px solid #333; }
+        .content-section { padding: 60px 0; }
+        .project-image { border-radius: 8px; border: 1px solid #333; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .bullet-icon { color: #0dcaf0; margin-right: 10px; }
+        .feature-row { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #2a2a2a; }
+        .feature-row:last-of-type { border-bottom: none; margin-bottom: 0; }
+        
+        /* Image height locks for clean grid alignment */
+        .top-image { height: 400px; width: auto; max-width: 100%; object-fit: contain; }
+        .board-image { height: 250px; width: auto; max-width: 100%; object-fit: cover; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">BRB Engineering</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html#projects">Back to Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-info">Autonomous Mars Rover</h1>
+            <p class="lead text-secondary">Competitive robotics platform featuring custom hardware and ESP32 machine vision</p>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="content-section">
+        <div class="container">
+            
+            <!-- Project Overview & Top Images -->
+            <div class="row mb-5 justify-content-center">
+                <div class="col-lg-12 mb-4">
+                    <h3 class="mb-3 text-info">Project Overview & Task</h3>
+                    <p class="fs-5 text-light">
+                        Working in a four-person team, I helped engineer a fully autonomous robotics platform designed to navigate a competitive Mars surface simulation. The objective was to traverse rough terrain, detect specific target beacons, and physically interact with objects on the field without any human intervention. The project required seamless integration across mechanical design, custom multi-board electrical routing, and object-oriented C++ control software.
+                    </p>
+                </div>
+                
+                <div class="col-md-6 text-center">
+                    <!-- Update this src with your actual competition surface image name -->
+                    <img src="images/CompetitionSurface.png" alt="Competition Surface Simulation" class="img-fluid project-image top-image">
+                    <p class="text-secondary mt-3"><em>Mars Surface Simulation Field</em></p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="images/RobotRealImage.png" alt="Fully Assembled Autonomous Robot" class="img-fluid project-image top-image">
+                    <p class="text-secondary mt-3"><em>Final Assembled Robotics Platform</em></p>
+                </div>
+            </div>
+
+            <hr class="border-secondary mb-5">
+
+            <!-- Mechanical Section -->
+            <div class="row mb-5 align-items-center">
+                <div class="col-md-6">
+                    <h3 class="mb-3 text-info">Mechanical Design</h3>
+                    <p class="fs-5 text-light">
+                        The mechanical chassis was designed to balance weight, durability, and modularity. We engineered the frame and mounting mechanisms in CAD, allowing for easy access to the electronics bay and secure placement of the mechanical claw, sensors, and drive motors. The robust drivetrain ensured the robot could smoothly navigate the uneven simulation surface while maintaining sensor alignment.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="images/RobotCADImage.png" alt="Robot CAD Model" class="img-fluid project-image w-100">
+                    <p class="text-secondary mt-3"><em>Mechanical Chassis CAD Assembly</em></p>
+                </div>
+            </div>
+
+            <hr class="border-secondary mb-5">
+
+            <!-- Electrical Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="mb-4 text-info">Electrical Hardware & Custom PCBs</h3>
+                    <p class="fs-5 text-light mb-5">
+                        I designed a suite of custom application-specific circuit boards to handle power delivery, motor actuation, and analog signal conditioning.
+                    </p>
+                </div>
+
+                <!-- Power Board -->
+                <div class="col-12 feature-row">
+                    <h4 class="text-light">Power Distribution Network</h4>
+                    <p class="text-secondary fs-5">
+                        Engineered a multi-rail power distribution PCB to manage the robot's various voltage requirements. The board steps the main battery supply into a 21V boost rail, a 7V buck converter, and 5V/3.3V linear regulators to safely isolate sensitive logic levels from high-current actuator draw.
+                    </p>
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotPowerSchematic.png" class="img-fluid project-image board-image w-100" alt="Power Schematic">
+                            <p class="text-secondary mt-2 small"><em>Schematic</em></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotPowerLayout.png" class="img-fluid project-image board-image w-100" alt="Power Layout">
+                            <p class="text-secondary mt-2 small"><em>PCB Layout</em></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotPowerImage.png" class="img-fluid project-image board-image w-100" alt="Power Board Physical">
+                            <p class="text-secondary mt-2 small"><em>Physical Board</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- H-Bridge Board -->
+                <div class="col-12 feature-row">
+                    <h4 class="text-light">H-Bridge Motor Driver</h4>
+                    <p class="text-secondary fs-5">
+                        Designed a dedicated H-Bridge PCB to enable bi-directional motor control for the drivetrain. The layout prioritizes thermal dissipation and wide trace routing to handle sustained current loads during complex navigation maneuvers.
+                    </p>
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotHBridgeSchematic.png" class="img-fluid project-image board-image w-100" alt="H-Bridge Schematic">
+                            <p class="text-secondary mt-2 small"><em>Schematic</em></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotHBridgeLayout.png" class="img-fluid project-image board-image w-100" alt="H-Bridge Layout">
+                            <p class="text-secondary mt-2 small"><em>PCB Layout</em></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotHBridgeImage.png" class="img-fluid project-image board-image w-100" alt="H-Bridge Physical">
+                            <p class="text-secondary mt-2 small"><em>Physical Board</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Board -->
+                <div class="col-12 feature-row">
+                    <h4 class="text-light">Analog Band-Pass Filter (1-10kHz)</h4>
+                    <p class="text-secondary fs-5">
+                        Developed a custom analog filter PCB specifically optimized for 10kHz infrared beacon detection. This hardware-level band-pass filtering isolates the target beacon signal from ambient light interference, drastically improving the robot's tracking reliability.
+                    </p>
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotFilterSchematic.png" class="img-fluid project-image board-image w-100" alt="Filter Schematic">
+                            <p class="text-secondary mt-2 small"><em>Schematic</em></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotFilterLayout.png" class="img-fluid project-image board-image w-100" alt="Filter Layout">
+                            <p class="text-secondary mt-2 small"><em>PCB Layout</em></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="images/RobotFilterImage.png" class="img-fluid project-image board-image w-100" alt="Filter Physical">
+                            <p class="text-secondary mt-2 small"><em>Physical Board</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metal Detector -->
+                <div class="col-12 feature-row">
+                    <h4 class="text-light">Metal Detector Circuit</h4>
+                    <p class="text-secondary fs-5">
+                        Built a custom metal detection circuit to identify specific subsurface targets during the simulation. Because this required rapid iteration and tuning, I elected to build this on a protoboard rather than a rigid PCB, allowing for quick component swapping during the testing phase.
+                    </p>
+                    <div class="row g-4 mt-2 justify-content-center">
+                        <div class="col-md-5 text-center">
+                            <img src="images/RobotMetalSchematic.png" class="img-fluid project-image board-image w-100" alt="Metal Detector Schematic">
+                            <p class="text-secondary mt-2 small"><em>Schematic</em></p>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <img src="images/RobotMetalImage.png" class="img-fluid project-image board-image w-100" alt="Metal Detector Physical Protoboard">
+                            <p class="text-secondary mt-2 small"><em>Physical Protoboard</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary mb-5">
+
+            <!-- Software Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="mb-4 text-info">Software & Architecture</h3>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-light mb-3">Machine Learning</h5>
+                            <p class="card-text text-secondary">
+                                Implemented an AI machine vision model using an ESP32-CAM module. This setup handled real-time image processing for high-accuracy object detection, allowing the robot to visually verify targets before initiating its grasping sequence.
+                            </p>
+                            <!-- Placeholder for future ML Image -->
+                            <div class="border border-secondary rounded p-4 text-center text-secondary mt-3" style="border-style: dashed !important;">
+                                <em>[Machine Learning Image Placeholder]</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-light mb-3">PD Control Systems</h5>
+                            <p class="card-text text-secondary">
+                                Engineered Proportional-Derivative (PD) control loops to manage the robot's navigation and motor actuation. By constantly calculating and adjusting for positional error, the drivetrain maintained smooth, predictable line-following and turning behavior.
+                            </p>
+                            <!-- Placeholder for future Controls Image -->
+                            <div class="border border-secondary rounded p-4 text-center text-secondary mt-3" style="border-style: dashed !important;">
+                                <em>[Controls Diagram Placeholder]</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Firmware -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-light mb-3">C++ Firmware & State Machines</h5>
+                            <p class="card-text text-secondary">
+                                Developed the core firmware using object-oriented C++ on an ESP32 microcontroller. The software architecture heavily utilized state machines to safely transition the robot between searching, tracking, grasping, and fault-handling states.
+                            </p>
+                            <!-- Placeholder for future Firmware Image -->
+                            <div class="border border-secondary rounded p-4 text-center text-secondary mt-3" style="border-style: dashed !important;">
+                                <em>[Firmware Architecture Placeholder]</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4 text-center border-top border-secondary mt-auto">
+        <p class="mb-0 text-secondary">&copy; 2026 Ben Rutherford-Braun</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
