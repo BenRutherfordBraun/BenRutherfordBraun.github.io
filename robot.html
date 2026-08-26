@@ -15,6 +15,7 @@
         
         /* Image height locks for clean grid alignment */
         .top-image { height: 400px; width: auto; max-width: 100%; object-fit: contain; }
+        /* Using contain prevents the sides/top from getting chopped off */
         .board-image { height: 250px; width: auto; max-width: 100%; object-fit: contain; }
     </style>
 </head>
@@ -53,7 +54,7 @@
                 
                 <div class="col-md-6 text-center">
                     <!-- Update this src with your actual competition surface image name -->
-                    <img src="images/RobotCompetitionSurface.png" alt="Competition Surface Simulation" class="img-fluid project-image top-image">
+                    <img src="images/CompetitionSurface.png" alt="Competition Surface Simulation" class="img-fluid project-image top-image">
                     <p class="text-secondary mt-3"><em>Mars Surface Simulation Field</em></p>
                 </div>
                 <div class="col-md-6 text-center">
@@ -96,15 +97,18 @@
                         Engineered a multi-rail power distribution PCB to manage the robot's various voltage requirements. The board steps the main battery supply into a 21V boost rail, a 7V buck converter, and 5V/3.3V linear regulators to safely isolate sensitive logic levels from high-current actuator draw.
                     </p>
                     <div class="row g-4 mt-2">
-                        <div class="col-md-4 text-center">
+                        <!-- Adjusted to col-md-6 for the wider schematic -->
+                        <div class="col-md-6 text-center">
                             <img src="images/RobotPowerSchematic.png" class="img-fluid project-image board-image w-100" alt="Power Schematic">
                             <p class="text-secondary mt-2 small"><em>Schematic</em></p>
                         </div>
-                        <div class="col-md-4 text-center">
+                        <!-- Adjusted to col-md-3 for the layout -->
+                        <div class="col-md-3 text-center">
                             <img src="images/RobotPowerLayout.png" class="img-fluid project-image board-image w-100" alt="Power Layout">
                             <p class="text-secondary mt-2 small"><em>PCB Layout</em></p>
                         </div>
-                        <div class="col-md-4 text-center">
+                        <!-- Adjusted to col-md-3 for the physical board -->
+                        <div class="col-md-3 text-center">
                             <img src="images/RobotPowerImage.png" class="img-fluid project-image board-image w-100" alt="Power Board Physical">
                             <p class="text-secondary mt-2 small"><em>Physical Board</em></p>
                         </div>
