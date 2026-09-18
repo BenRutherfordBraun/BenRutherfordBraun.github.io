@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>600V Battery Management System | BRB Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section { padding: 60px 0; background: #1a1a1a; border-bottom: 1px solid #333; }
+        .content-section { padding: 60px 0; }
+        .project-image { border-radius: 8px; border: 1px solid #333; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .bullet-icon { color: #0dcaf0; margin-right: 10px; }
+        .feature-row { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid #2a2a2a; }
+        .feature-row:last-of-type { border-bottom: none; margin-bottom: 2rem; }
+        
+        /* Locks the height of the top images */
+        .top-image { 
+            height: 600px; 
+            width: auto; 
+            max-width: 100%; 
+            object-fit: contain; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">BRB Engineering</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html#projects">Back to Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-info">600V Battery Management System</h1>
+            <p class="lead text-secondary">Custom 4-layer PCB for EV accumulator monitoring, safety, and telemetry</p>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="content-section">
+        <div class="container">
+            
+            <!-- Project Overview & Top Images -->
+            <div class="row mb-5 justify-content-center">
+                <div class="col-lg-12 text-center mb-4">
+                    <p class="fs-5 text-light text-start">
+                        Owned the end-to-end design of a custom 600V Battery Management System (BMS) PCB using Altium Designer for the UBC Formula SAE Electric vehicle. The board interfaces control electronics with high-voltage power delivery, monitors cell voltages and temperatures, enforces strict galvanic isolation via isoSPI, and transmits real-time telemetry over a CAN network.
+                    </p>
+                </div>
+                
+                <div class="col-md-10 text-center">
+                    <img src="images/BMSImage.png" alt="600V BMS 3D PCB Render" class="img-fluid project-image top-image">
+                    <p class="text-secondary mt-3"><em>600V BMS 3D Board View</em></p>
+                </div>
+            </div>
+
+            <!-- Hardware Revisions Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="mb-4 text-info">Key System Architecture</h3>
+                </div>
+            </div>
+
+            <!-- Feature 1: Current Sense -->
+            <div class="row align-items-center feature-row">
+                <div class="col-md-4">
+                    <h4 class="text-light">Tractive System Current Sense</h4>
+                    <p class="text-secondary fs-5">
+                        Integrated the highly accurate ADBMS2950 IC to process precision high-voltage telemetry. This architecture performs tractive system current sensing through a custom shunt resistor PCB, feeding critical load data to the onboard processor for state-of-charge tracking and overcurrent fault diagnostics.
+                    </p>
+                </div>
+                <div class="col-md-8 text-center">
+                    <img src="images/BMSCurrentSense.png" alt="ADBMS2950 Current Sense Schematic" class="img-fluid project-image w-100">
+                </div>
+            </div>
+
+            <!-- Feature 2: Shutdown Logic -->
+            <div class="row align-items-center feature-row">
+                <div class="col-md-4">
+                    <h4 class="text-light">Hardware-Controlled Shutdown Logic</h4>
+                    <p class="text-secondary fs-5">
+                        Engineered a purely hardware-controlled safety shutdown circuit to meet rigorous competition safety constraints. Utilizing analog comparators, NAND gates, and latches, this logic instantly isolates the high-voltage tractive system during a fault condition, bypassing software completely to ensure zero-latency fault mitigation.
+                    </p>
+                </div>
+                <div class="col-md-8 text-center">
+                    <img src="images/BMSShutdownLatch.png" alt="Hardware Shutdown Latch Schematic" class="img-fluid project-image w-100">
+                </div>
+            </div>
+
+            <!-- Key Skills Bottom Section -->
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h4 class="mb-3 text-info">Key Skills & Takeaways</h4>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>High-Voltage PCB Design:</strong> Architecting 4-layer boards to safely manage 600V systems with strict clearance, creepage, and galvanic isolation requirements.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Safety Critical Logic:</strong> Designing and validating latching hardware fault detection using discrete logic gates and analog comparators.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Telemetry Integration:</strong> Bridging the high-voltage and low-voltage domains using isoSPI and CAN communication protocols for real-time monitoring.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary border-bottom-0">
+                            <span class="bullet-icon">■</span> <strong>Component Selection:</strong> Implementing specialized automotive-grade ICs like the ADBMS2950 to handle complex EV accumulator monitoring reliably.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4 text-center border-top border-secondary mt-auto">
+        <p class="mb-0 text-secondary">&copy; 2026 Ben Rutherford-Braun</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
