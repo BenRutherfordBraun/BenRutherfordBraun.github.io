@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Enclosure | BRB Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section { padding: 60px 0; background: #1a1a1a; border-bottom: 1px solid #333; }
+        .content-section { padding: 60px 0; }
+        .project-image { border-radius: 8px; border: 1px solid #333; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .bullet-icon { color: #0dcaf0; margin-right: 10px; }
+        .feature-row { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid #2a2a2a; }
+        .feature-row:last-of-type { border-bottom: none; margin-bottom: 2rem; }
+        
+        /* Locks the height of the top images */
+        .top-image { 
+            height: 600px; 
+            width: auto; 
+            max-width: 100%; 
+            object-fit: contain; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Ben Rutherford-Braun</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html#projects">Back to Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-info">Dashboard Enclosure</h1>
+            <p class="lead text-secondary">Waterproof driver interface housing for the Formula SAE Electric vehicle</p>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="content-section">
+        <div class="container">
+            
+            <!-- Project Overview & Top Images -->
+            <div class="row mb-5 justify-content-center">
+                <div class="col-lg-12 text-center mb-4">
+                    <p class="fs-5 text-light text-start">
+                        Designed and modeled a custom dashboard enclosure using SolidWorks to house the vehicle's electronic driver interface. As a member of the Mechanical Chassis sub-team, the primary objective was turning complex, conflicting requirements from multiple departments into a lightweight, usable, and high-performance mechanical housing.
+                    </p>
+                </div>
+                
+                <div class="col-md-6 text-center">
+                    <img src="images/DashBoardWithPCB.png" alt="Dashboard Front with PCB" class="img-fluid project-image top-image">
+                    <p class="text-secondary mt-3"><em>Front View (PCB Integrated)</em></p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="images/DashboardBack.png" alt="Dashboard Rear View" class="img-fluid project-image top-image">
+                    <p class="text-secondary mt-3"><em>Rear View (Showing Mounting Tabs & Enclosures)</em></p>
+                </div>
+            </div>
+
+            <!-- Hardware Revisions Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="mb-4 text-info">Engineering Challenges & Solutions</h3>
+                </div>
+            </div>
+
+            <!-- Change 1: Waterproofing -->
+            <div class="row align-items-center feature-row">
+                <div class="col-md-4">
+                    <h4 class="text-light">Comprehensive Environmental Sealing</h4>
+                    <p class="text-secondary fs-5">
+                        Achieving full waterproofing was critical despite dozens of interface openings. I engineered a large laser-cut rubber gasket to seal the base of the front plate, supplemented by smaller, dedicated rubber seals isolating each individual switch and button.
+                    </p>
+                </div>
+                <div class="col-md-8 text-center">
+                    <img src="images/DashboardFront.png" alt="Dashboard Front View" class="img-fluid project-image w-100">
+                </div>
+            </div>
+
+            <!-- Change 2: Manufacturing -->
+            <div class="row align-items-center feature-row">
+                <div class="col-md-4">
+                    <h4 class="text-light">Precision Manufacturing & Light Isolation</h4>
+                    <p class="text-secondary fs-5">
+                        Leveraged multiple manufacturing techniques, including water jetting for the front plate and 3D printing for the main body. To prevent light bleed between indicators, I integrated 3D-printed internal enclosures around each LED and fitted plexiglass shielding in front of the 7-segment displays.
+                    </p>
+                </div>
+                <div class="col-md-8 text-center">
+                    <img src="images/DashboardDrawing.png" alt="Dashboard Technical Drawing" class="img-fluid project-image w-100">
+                </div>
+            </div>
+
+            <!-- Key Skills Bottom Section -->
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h4 class="mb-3 text-info">Key Skills & Takeaways</h4>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Mechanical CAD:</strong> Utilizing SolidWorks to model complex 3D enclosures, mounting tabs, and interlocking component tolerances.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Manufacturing Processes:</strong> Practical application of water jetting, laser cutting (gaskets), and 3D printing for rapid prototyping and final production.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Cross-Functional Collaboration:</strong> Balancing conflicting design criteria (cost, weight, driver ergonomics, and electrical constraints) across multiple sub-teams.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary border-bottom-0">
+                            <span class="bullet-icon">■</span> <strong>Environmental Protection:</strong> Designing reliable rubber gasket systems and optical barriers for sensitive electronics in harsh automotive environments.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4 text-center border-top border-secondary mt-auto">
+        <p class="mb-0 text-secondary">&copy; 2026 Ben Rutherford-Braun</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
