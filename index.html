@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
@@ -7,7 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <style>
-        .hero-section { padding: 80px 0; background: #1a1a1a; }
+        /* Added a dark gradient overlay to ensure text remains readable over the background photo */
+        .hero-section { 
+            padding: 120px 0; 
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('images/FormulaTeamPhoto.jpg') center/cover no-repeat;
+        }
         .project-card { transition: transform 0.2s; border: 1px solid #333; }
         .project-card:hover { transform: translateY(-5px); }
     </style>
@@ -16,19 +21,18 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">BRB Engineering</a>
+            <a class="navbar-brand" href="#">Ben Rutherford-Braun</a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="#projects">Projects</a>
                 <a class="nav-link" href="#skills">Skills</a>
-                <a class="nav-link" href="https://github.com/BenRutherfordBraun">GitHub</a>
             </div>
         </div>
     </nav>
 
     <header class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold">Ben Rutherford-Braun</h1>
-            <p class="lead">Embedded Systems | Electronics | C++ Firmware</p>
+            <h1 class="display-4 fw-bold text-white">Ben Rutherford-Braun</h1>
+            <p class="lead text-light">Electronic Design | HV Design and Testing | Firmware and Test Scripts</p>
         </div>
     </header>
 
@@ -45,7 +49,11 @@
                             <div class="card-body">
                                 <h5 class="card-title text-info">Rear Sensor Module PCB</h5>
                                 <p class="card-text">Designed and routed a custom PCB featuring an STM32H5 microcontroller, CAN transceiver, and IMU telemetry processing for vehicle dynamics.</p>
-                                <span class="badge bg-secondary">PCB Layout</span> <span class="badge bg-secondary">STM32</span> <span class="badge bg-secondary">CAN Network</span>
+                                <span class="badge bg-secondary">Altium</span> 
+                                <span class="badge bg-secondary">FDCAN</span> 
+                                <span class="badge bg-secondary">SPI</span> 
+                                <span class="badge bg-secondary">I2C</span> 
+                                <span class="badge bg-secondary">C</span>
                             </div>
                         </div>
                     </a>
@@ -59,7 +67,11 @@
                             <div class="card-body">
                                 <h5 class="card-title text-info">600V Battery Management System</h5>
                                 <p class="card-text">Designed a custom 4-layer 600V BMS PCB integrating ADBMS2950 high-voltage telemetry ICs, hardware-controlled shutdown logic, and real-time motor speed control firmware.</p>
-                                <span class="badge bg-secondary">KiCad</span> <span class="badge bg-secondary">High-Voltage Design</span> <span class="badge bg-secondary">C++ Firmware</span>
+                                <span class="badge bg-secondary">HV/LV PCB Design (Altium)</span> 
+                                <span class="badge bg-secondary">Battery Management System (BMS)</span> 
+                                <span class="badge bg-secondary">isoSPI</span> 
+                                <span class="badge bg-secondary">C++</span> 
+                                <span class="badge bg-secondary">E-Load</span>
                             </div>
                         </div>
                     </a>
@@ -69,12 +81,15 @@
                 <div class="col-md-6">
                     <a href="robot.html" class="text-decoration-none text-light">
                         <div class="card h-100 project-card bg-dark text-light">
-                            <!-- Added Cover Image Here -->
                             <img src="images/RobotRealImage.png" class="card-img-top" alt="Autonomous Mars Rover Robot">
                             <div class="card-body">
                                 <h5 class="card-title text-info">Autonomous Mars Rover Robot</h5>
                                 <p class="card-text">Developed an autonomous robot for a surface simulation competition. Implemented a multi-rail power distribution network, state machines, and machine vision.</p>
-                                <span class="badge bg-secondary">Robotics</span> <span class="badge bg-secondary">Machine Vision</span> <span class="badge bg-secondary">Power Distribution</span>
+                                <span class="badge bg-secondary">Power Electronics (Buck/Boost, DC/DC)</span> 
+                                <span class="badge bg-secondary">C++</span> 
+                                <span class="badge bg-secondary">Arduino</span> 
+                                <span class="badge bg-secondary">SMD and THT Soldering</span> 
+                                <span class="badge bg-secondary">UART</span>
                             </div>
                         </div>
                     </a>
@@ -88,7 +103,11 @@
                             <div class="card-body">
                                 <h5 class="card-title text-info">Motor RPM Control Circuit</h5>
                                 <p class="card-text">Built a closed-loop motor control system utilizing a phototransistor-LED pair for RPM sensing and an error signal amplifier to regulate motor current.</p>
-                                <span class="badge bg-secondary">Analog Design</span> <span class="badge bg-secondary">Signal Conditioning</span> <span class="badge bg-secondary">Hardware Debugging</span>
+                                <span class="badge bg-secondary">Circuit Simulation (LTspice)</span> 
+                                <span class="badge bg-secondary">Electronic Design</span> 
+                                <span class="badge bg-secondary">Function Generator</span> 
+                                <span class="badge bg-secondary">Oscilloscope</span> 
+                                <span class="badge bg-secondary">DMM</span>
                             </div>
                         </div>
                     </a>
@@ -100,7 +119,11 @@
                         <div class="card-body">
                             <h5 class="card-title text-info">Dashboard Enclosure</h5>
                             <p class="card-text">Engineered a custom dashboard enclosure utilizing 3D printing and mechanical modeling to safely house vehicle electronics and displays.</p>
-                            <span class="badge bg-secondary">SolidWorks</span> <span class="badge bg-secondary">3D Printing</span> <span class="badge bg-secondary">Hardware Fabrication</span>
+                            <span class="badge bg-secondary">Electronic Design</span> 
+                            <span class="badge bg-secondary">Altium</span> 
+                            <span class="badge bg-secondary">SMD and THT Soldering</span> 
+                            <span class="badge bg-secondary">DMM</span> 
+                            <span class="badge bg-secondary">Git</span>
                         </div>
                     </div>
                 </div>
@@ -116,3 +139,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+```
