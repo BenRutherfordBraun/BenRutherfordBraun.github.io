@@ -200,43 +200,51 @@
                 </div>
 
                 <!-- Machine Learning -->
-                <div class="col-lg-4 mb-4">
-                    <div class="card bg-dark border-secondary h-100">
-                        <div class="card-body">
-                            <h5 class="card-title text-light mb-3">Machine Learning</h5>
-                            <p class="card-text text-secondary">
+                <div class="col-12 feature-row">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-7">
+                            <h4 class="text-light mb-3">Machine Learning</h4>
+                            <p class="text-secondary fs-5">
                                 Implemented an AI machine vision model using an ESP32-CAM module. This setup handled real-time image processing for high-accuracy object detection, allowing the robot to visually verify targets before initiating its grasping sequence.
                             </p>
-                            <img src="images/telletubbyDetect.png" alt="ESP32-CAM Object Detection" class="img-fluid rounded border border-secondary mt-3">
+                        </div>
+                        <div class="col-lg-5 text-center">
+                            <img src="images/telletubbyDetect.png" alt="ESP32-CAM Object Detection" class="img-fluid rounded border border-secondary shadow-sm">
                         </div>
                     </div>
                 </div>
 
-                <!-- Controls -->
-                <div class="col-lg-4 mb-4">
-                    <div class="card bg-dark border-secondary h-100">
-                        <div class="card-body">
-                            <h5 class="card-title text-light mb-3">PD Control Systems</h5>
-                            <p class="card-text text-secondary">
+                <!-- Controls (Now with Video) -->
+                <div class="col-12 feature-row">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-7">
+                            <h4 class="text-light mb-3">PD Control Systems</h4>
+                            <p class="text-secondary fs-5">
                                 Engineered Proportional-Derivative (PD) control loops to manage the robot's navigation and motor actuation. By constantly calculating and adjusting for positional error, the drivetrain maintained smooth, predictable line-following and turning behavior.
                             </p>
-                            <div class="border border-secondary rounded p-4 text-center text-secondary mt-3" style="border-style: dashed !important;">
-                                <em>[Controls Diagram Placeholder]</em>
-                            </div>
+                        </div>
+                        <div class="col-lg-5 text-center">
+                            <!-- Update the src attribute below with your actual mp4 file name -->
+                            <video class="img-fluid rounded border border-secondary shadow-sm w-100" autoplay loop muted playsinline>
+                                <source src="images/robotTurning.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
 
                 <!-- Firmware FSM -->
-                <div class="col-lg-4 mb-4">
-                    <div class="card bg-dark border-secondary h-100">
-                        <div class="card-body">
-                            <h5 class="card-title text-light mb-3">C++ Firmware & State Machines</h5>
-                            <p class="card-text text-secondary">
+                <div class="col-12 feature-row">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-7">
+                            <h4 class="text-light mb-3">C++ Firmware & State Machines</h4>
+                            <p class="text-secondary fs-5">
                                 Developed the core firmware using object-oriented C++ on an ESP32 microcontroller. The software architecture heavily utilized state machines to safely transition the robot between searching, tracking, grasping, and fault-handling states.
                             </p>
+                        </div>
+                        <div class="col-lg-5">
                             <!-- Mermaid container -->
-                            <div class="mermaid border border-secondary rounded p-3 text-center mt-3" style="background-color: #1e1e1e;">
+                            <div class="mermaid border border-secondary rounded p-3 text-center shadow-sm" style="background-color: #1e1e1e;">
 								graph TD
 								classDef default fill:#252526,stroke:#0dcaf0,stroke-width:1px,color:#fff;
 								classDef decision fill:#04395e,stroke:#0dcaf0,stroke-width:1px,color:#fff;
@@ -287,6 +295,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             <!-- Full Codebase IDE Section -->
             <div class="row mb-4">
                 <div class="col-12 d-flex justify-content-between align-items-end mb-3">
