@@ -245,6 +245,7 @@
                         <div class="col-lg-5">
                             <!-- Mermaid container -->
                             <div class="mermaid border border-secondary rounded p-4 text-center shadow-sm" style="background-color: #1e1e1e;">
+%%{init: {'flowchart': {'rankSpacing': 30}}}%%
 graph TD
     %% Clean, Uniform Styling
     classDef default fill:#252526,stroke:#0dcaf0,stroke-width:1px,color:#fff,rx:4px,ry:4px;
@@ -252,7 +253,7 @@ graph TD
     Hop[Hop to Cluster] --> Sweep[Ultrasonic Sweep]
     Sweep -->|"Rock Found"| Centre[Travel & Centre]
 
-    %% Split streams (forces diagram to spread wider horizontally)
+    %% Split streams
     Centre --> Cam[Camera Scan]
     Centre --> MetalScan[Metal Scan]
 
@@ -261,8 +262,7 @@ graph TD
     TubbyFound -->|"Yes"| Point[Point to Target]
     TubbyFound -->|"No"| ObjCheck
 
-    Point --> Realign[Re-centre]
-    Realign --> ObjCheck
+    Point --> ObjCheck
 
     %% Metal Stream
     MetalScan --> IsMetal{Is Metallic?}
