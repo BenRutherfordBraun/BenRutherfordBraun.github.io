@@ -227,7 +227,7 @@
                     </div>
                 </div>
 
-                <<!-- Firmware FSM -->
+                <!-- Firmware FSM -->
                 <div class="col-lg-4 mb-4">
                     <div class="card bg-dark border-secondary h-100">
                         <div class="card-body">
@@ -243,12 +243,10 @@ graph TD
 
     Init[Init] --> Router{Phase Router}
 
-    %% Main Branches
     Router -- phase == COLLECT --> Hop[Hop to Cluster]
     Router -- phase == PANEL --> Crest[Follow Line to Panel]
     Router -- phase == DONE --> Hold[Hold Position]
 
-    %% Collection Sequence
     Hop --> FindRock[Find Rock: Sweep]
     FindRock -- rock found --> Travel[Travel to Rock]
     FindRock -- rock lost --> Advance[Advance to Next Cluster]
@@ -280,7 +278,6 @@ graph TD
     DoneCheck -- yes --> Router
     DoneCheck -- no --> Router
 
-    %% Panel Sequence
     Crest -- panel detected --> PanelSweep[Sweeping Motion]
     PanelSweep -- complete --> End[Set phase = DONE]
     End --> Router
@@ -290,7 +287,6 @@ graph TD
                         </div>
                     </div>
                 </div>
-
             <!-- Full Codebase IDE Section -->
             <div class="row mb-4">
                 <div class="col-12 d-flex justify-content-between align-items-end mb-3">
