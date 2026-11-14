@@ -244,58 +244,37 @@
                         </div>
                         <div class="col-lg-5">
                             <!-- Mermaid container -->
-                            <div class="mermaid border border-secondary rounded p-3 text-center shadow-sm" style="background-color: #1e1e1e;">
-								graph TD
-								classDef default fill:#252526,stroke:#0dcaf0,stroke-width:1px,color:#fff;
-								classDef decision fill:#04395e,stroke:#0dcaf0,stroke-width:1px,color:#fff;
-								
-								Init[Init] --> Router{Phase Router}
-								
-								Router -->|"phase == COLLECT"| Hop[Hop to Cluster]
-								Router -->|"phase == PANEL"| Crest[Follow Line to Panel]
-								Router -->|"phase == DONE"| Hold[Hold Position]
-								
-								Hop --> FindRock[Find Rock: Sweep]
-								FindRock -->|"rock found"| Travel[Travel to Rock]
-								FindRock -->|"rock lost"| Advance[Advance to Next Cluster]
-								
-								Travel -->|"at grab distance"| Centre[Centre on Rock]
-								Travel -->|"lost"| Advance
-								
-								Centre -->|"centered"| SweepBlob[Teletubby Camera Scan]
-								Centre -->|"centering fails"| Advance
-								
-								SweepBlob -->|"teletubby found"| PointBlob[Point to Teletubby]
-								SweepBlob -->|"no teletubby"| NeedMetal{Still need metal?}
-								
-								PointBlob --> Recentre[Re-centre on Rock]
-								Recentre -->|"re-centered"| NeedMetal
-								Recentre -->|"re-centre fails"| Advance
-								
-								NeedMetal -->|"yes"| LowerClaw[Lower Claw]
-								NeedMetal -->|"no"| Advance
-								
-								LowerClaw --> ScanMetal[Scan for Metal]
-								ScanMetal -->|"metal detected"| Grab[Engage Claw / Store Rock]
-								ScanMetal -->|"decoy"| RaiseClaw[Raise Claw]
-								
-								Grab --> Advance
-								RaiseClaw --> Advance
-								
-								Advance --> DoneCheck{Collection Done?}
-								DoneCheck -->|"yes"| Router
-								DoneCheck -->|"no"| Router
-								
-								Crest -->|"panel detected"| PanelSweep[Sweeping Motion]
-								PanelSweep -->|"complete"| End[Set phase = DONE]
-								End --> Router
-								
-								class Router,NeedMetal,DoneCheck decision;
+                            <div class="mermaid border border-secondary rounded p-4 text-center shadow-sm" style="background-color: #1e1e1e;">
+graph TD
+    %% Custom Styling
+    classDef default fill:#252526,stroke:#555,stroke-width:1px,color:#ddd,rx:6px,ry:6px;
+    classDef highlight fill:#04395e,stroke:#0dcaf0,stroke-width:2px,color:#fff,rx:6px,ry:6px;
+    classDef decision fill:#1d1f21,stroke:#0dcaf0,stroke-width:1px,color:#0dcaf0,rx:15px,ry:15px;
+
+    %% Core Collection Loop
+    Hop[Hop to Cluster] --> Sweep[Ultrasonic Sweep]
+    Sweep -->|"Rock Found"| Centre[Travel & Centre]
+    
+    Centre --> Cam[Camera Vision Scan]
+    Cam --> Metal{Is Metallic?}
+    
+    Metal -->|"Yes"| Grab[Engage Claw & Store]
+    Metal -->|"No (Decoy)"| Ignore[Ignore Rock]
+    
+    Grab --> Advance[Advance Cluster]
+    Ignore --> Advance
+    
+    Advance -.->|"Loop"| Hop
+    Advance ===>|"All 6 Checked"| Panel[Line Follow to Panel]
+
+    %% Apply Styles
+    class Hop,Sweep,Centre,Cam,Ignore,Advance default;
+    class Grab,Panel highlight;
+    class Metal decision;
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <!-- Full Codebase IDE Section -->
             <div class="row mb-4">
                 <div class="col-12 d-flex justify-content-between align-items-end mb-3">
