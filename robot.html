@@ -236,41 +236,42 @@
                 <!-- Firmware FSM -->
                 <div class="col-12 feature-row">
                     <div class="row align-items-center g-4">
-                        <div class="col-lg-7">
-                            <h4 class="text-light mb-3">C++ Firmware & State Machines</h4>
-                            <p class="text-secondary fs-5">
-                                Developed the core firmware using object-oriented C++ on an ESP32 microcontroller. The software architecture heavily utilized state machines to safely transition the robot between searching, tracking, grasping, and fault-handling states.
-                            </p>
-                        </div>
                         <div class="col-lg-5">
                             <!-- Mermaid container -->
                             <div class="mermaid border border-secondary rounded p-4 text-center shadow-sm" style="background-color: #1e1e1e;">
-graph TD
-    %% Custom Styling
-    classDef default fill:#252526,stroke:#555,stroke-width:1px,color:#ddd,rx:6px,ry:6px;
-    classDef highlight fill:#04395e,stroke:#0dcaf0,stroke-width:2px,color:#fff,rx:6px,ry:6px;
-    classDef decision fill:#1d1f21,stroke:#0dcaf0,stroke-width:1px,color:#0dcaf0,rx:15px,ry:15px;
+graph LR
+    %% Clean, Uniform Styling
+    classDef default fill:#252526,stroke:#0dcaf0,stroke-width:1px,color:#fff,rx:4px,ry:4px;
 
-    %% Core Collection Loop
     Hop[Hop to Cluster] --> Sweep[Ultrasonic Sweep]
     Sweep -->|"Rock Found"| Centre[Travel & Centre]
-    
-    Centre --> Cam[Camera Vision Scan]
-    Cam --> Metal{Is Metallic?}
-    
-    Metal -->|"Yes"| Grab[Engage Claw & Store]
-    Metal -->|"No (Decoy)"| Ignore[Ignore Rock]
-    
-    Grab --> Advance[Advance Cluster]
-    Ignore --> Advance
-    
-    Advance -.->|"Loop"| Hop
-    Advance ===>|"All 6 Checked"| Panel[Line Follow to Panel]
 
-    %% Apply Styles
-    class Hop,Sweep,Centre,Cam,Ignore,Advance default;
-    class Grab,Panel highlight;
-    class Metal decision;
+    %% Split streams
+    Centre --> Cam[Camera Scan]
+    Centre --> MetalScan[Metal Scan]
+
+    %% Vision Stream
+    Cam --> TubbyFound{Teletubby<br>Detected?}
+    TubbyFound -->|"Yes"| Point[Point to Target]
+    TubbyFound -->|"No"| ObjCheck
+
+    Point --> Realign[Re-centre]
+    Realign --> ObjCheck
+
+    %% Metal Stream
+    MetalScan --> IsMetal{Is Metallic?}
+    IsMetal -->|"Yes"| Grab[Engage Claw & Store]
+    IsMetal -->|"No (Decoy)"| ObjCheck
+    
+    Grab --> ObjCheck
+
+    %% Recombine and Evaluate Loop
+    ObjCheck{All Rocks Checked<br>OR<br>Objectives Met?}
+    
+    ObjCheck -.->|"No"| Hop
+    ObjCheck ===>|"Yes"| Panel[Line Follow to Panel]
+
+    class TubbyFound,IsMetal,ObjCheck default;
                             </div>
                         </div>
                     </div>
