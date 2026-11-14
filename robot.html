@@ -237,52 +237,52 @@
                             </p>
                             <!-- Mermaid container -->
                             <div class="mermaid border border-secondary rounded p-3 text-center mt-3" style="background-color: #1e1e1e;">
-graph TD
-    classDef default fill:#252526,stroke:#0dcaf0,stroke-width:1px,color:#fff;
-    classDef decision fill:#04395e,stroke:#0dcaf0,stroke-width:1px,color:#fff;
-
-    Init[Init] --> Router{Phase Router}
-
-    Router -- phase == COLLECT --> Hop[Hop to Cluster]
-    Router -- phase == PANEL --> Crest[Follow Line to Panel]
-    Router -- phase == DONE --> Hold[Hold Position]
-
-    Hop --> FindRock[Find Rock: Sweep]
-    FindRock -- rock found --> Travel[Travel to Rock]
-    FindRock -- rock lost --> Advance[Advance to Next Cluster]
-    
-    Travel -- at grab distance --> Centre[Centre on Rock]
-    Travel -- lost --> Advance
-    
-    Centre -- centered --> SweepBlob[Teletubby Camera Scan]
-    Centre -- centering fails --> Advance
-    
-    SweepBlob -- teletubby found --> PointBlob[Point to Teletubby]
-    SweepBlob -- no teletubby --> NeedMetal{Still need metal?}
-    
-    PointBlob --> Recentre[Re-centre on Rock]
-    Recentre -- re-centered --> NeedMetal
-    Recentre -- re-centre fails --> Advance
-    
-    NeedMetal -- yes --> LowerClaw[Lower Claw]
-    NeedMetal -- no --> Advance
-    
-    LowerClaw --> ScanMetal[Scan for Metal]
-    ScanMetal -- metal detected --> Grab[Engage Claw / Store Rock]
-    ScanMetal -- decoy --> RaiseClaw[Raise Claw (Decoy)]
-    
-    Grab --> Advance
-    RaiseClaw --> Advance
-    
-    Advance --> DoneCheck{Collection Done?}
-    DoneCheck -- yes --> Router
-    DoneCheck -- no --> Router
-
-    Crest -- panel detected --> PanelSweep[Sweeping Motion]
-    PanelSweep -- complete --> End[Set phase = DONE]
-    End --> Router
-
-    class Router,NeedMetal,DoneCheck decision;
+								graph TD
+								classDef default fill:#252526,stroke:#0dcaf0,stroke-width:1px,color:#fff;
+								classDef decision fill:#04395e,stroke:#0dcaf0,stroke-width:1px,color:#fff;
+							
+								Init[Init] --> Router{Phase Router}
+							
+								Router -- phase == COLLECT --> Hop[Hop to Cluster]
+								Router -- phase == PANEL --> Crest[Follow Line to Panel]
+								Router -- phase == DONE --> Hold[Hold Position]
+							
+								Hop --> FindRock[Find Rock: Sweep]
+								FindRock -- rock found --> Travel[Travel to Rock]
+								FindRock -- rock lost --> Advance[Advance to Next Cluster]
+								
+								Travel -- at grab distance --> Centre[Centre on Rock]
+								Travel -- lost --> Advance
+								
+								Centre -- centered --> SweepBlob[Teletubby Camera Scan]
+								Centre -- centering fails --> Advance
+								
+								SweepBlob -- teletubby found --> PointBlob[Point to Teletubby]
+								SweepBlob -- no teletubby --> NeedMetal{Still need metal?}
+								
+								PointBlob --> Recentre[Re-centre on Rock]
+								Recentre -- re-centered --> NeedMetal
+								Recentre -- re-centre fails --> Advance
+								
+								NeedMetal -- yes --> LowerClaw[Lower Claw]
+								NeedMetal -- no --> Advance
+								
+								LowerClaw --> ScanMetal[Scan for Metal]
+								ScanMetal -- metal detected --> Grab[Engage Claw / Store Rock]
+								ScanMetal -- decoy --> RaiseClaw[Raise Claw (Decoy)]
+								
+								Grab --> Advance
+								RaiseClaw --> Advance
+								
+								Advance --> DoneCheck{Collection Done?}
+								DoneCheck -- yes --> Router
+								DoneCheck -- no --> Router
+							
+								Crest -- panel detected --> PanelSweep[Sweeping Motion]
+								PanelSweep -- complete --> End[Set phase = DONE]
+								End --> Router
+							
+								class Router,NeedMetal,DoneCheck decision;
                             </div>
                         </div>
                     </div>
