@@ -20,6 +20,9 @@
             max-width: 100%; 
             object-fit: contain; 
         }
+        
+        /* Custom styling for feature bullet lists */
+        .feature-list li { margin-bottom: 0.75rem; }
     </style>
 </head>
 <body>
@@ -70,10 +73,12 @@
             <!-- Feature 1: MCU -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">MCU Control</h4>
-                    <p class="text-secondary fs-5">
-                        Placeholder text for BMS MCU section.
-                    </p>
+                    <h4 class="text-light mb-3">MCU Control</h4>
+                    <ul class="text-secondary fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Integrated STM32 microcontroller for centralized fault handling and state-of-charge calculation.</li>
+                        <li><span class="bullet-icon">■</span> Interfaces with the high-voltage telemetry ICs via isolated SPI protocols.</li>
+                        <li><span class="bullet-icon">■</span> Broadcasts real-time battery health data across the vehicle's CAN network.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/BMSMCU.png" alt="BMS MCU Schematic" class="img-fluid project-image w-100">
@@ -83,10 +88,12 @@
             <!-- Feature 2: isoSPI -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">isoSPI Communication</h4>
-                    <p class="text-secondary fs-5">
-                        Placeholder text for isoSPI section.
-                    </p>
+                    <h4 class="text-light mb-3">isoSPI Communication</h4>
+                    <ul class="text-secondary fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Utilizes ADBMS6822 transceivers for robust differential signaling in high-noise environments.</li>
+                        <li><span class="bullet-icon">■</span> Implements LC Pi-filters (100nF, MPZ ferrite beads, 4.7µF bypass) to suppress high-frequency switching noise.</li>
+                        <li><span class="bullet-icon">■</span> Daisy-chained architecture supports scalable accumulator segment monitoring.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/isoSPI.png" alt="isoSPI Schematic" class="img-fluid project-image w-100">
@@ -96,10 +103,12 @@
             <!-- Feature 3: isoSPI Transformer -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">isoSPI Isolation</h4>
-                    <p class="text-secondary fs-5">
-                        Placeholder text for isoSPI Transformer section.
-                    </p>
+                    <h4 class="text-light mb-3">isoSPI Isolation</h4>
+                    <ul class="text-secondary fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Enforces strict galvanic isolation to protect low-voltage control circuitry from 600V transients.</li>
+                        <li><span class="bullet-icon">■</span> Optimized PCB layout for differential pairs to minimize parasitic capacitance and signal degradation.</li>
+                        <li><span class="bullet-icon">■</span> Meets rigorous FSAE accumulator safety clearance and creepage requirements.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/isoSPITransformer.png" alt="isoSPI Transformer Schematic" class="img-fluid project-image w-100">
@@ -109,7 +118,7 @@
             <!-- Feature 4: Current Sense -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">Tractive System Current Sense</h4>
+                    <h4 class="text-light mb-3">Tractive System Current Sense</h4>
                     <p class="text-secondary fs-5">
                         Integrated the highly accurate ADBMS2950 IC to process precision high-voltage telemetry. This architecture performs tractive system current sensing through a custom shunt resistor PCB, feeding critical load data to the onboard processor for state-of-charge tracking and overcurrent fault diagnostics.
                     </p>
@@ -122,7 +131,7 @@
             <!-- Feature 5: Shutdown Logic -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">Hardware-Controlled Shutdown Logic</h4>
+                    <h4 class="text-light mb-3">Hardware-Controlled Shutdown Logic</h4>
                     <p class="text-secondary fs-5">
                         Engineered a purely hardware-controlled safety shutdown circuit to meet rigorous competition safety constraints. Utilizing analog comparators, NAND gates, and latches, this logic instantly isolates the high-voltage tractive system during a fault condition, bypassing software completely to ensure zero-latency fault mitigation.
                     </p>
@@ -135,10 +144,12 @@
             <!-- Feature 6: Fan eFuse -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">Fan eFuse Protection</h4>
-                    <p class="text-secondary fs-5">
-                        Placeholder text for Fan eFuse section.
-                    </p>
+                    <h4 class="text-light mb-3">Fan eFuse Protection</h4>
+                    <ul class="text-secondary fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Distributes power to accumulator cooling fan arrays across extended wiring runs.</li>
+                        <li><span class="bullet-icon">■</span> Provides overcurrent protection and thermal shutdown to prevent wire harness damage.</li>
+                        <li><span class="bullet-icon">■</span> Controlled via PWM signals driven by BSS138 MOSFETs for variable speed cooling.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/FanEfuse.png" alt="Fan eFuse Schematic" class="img-fluid project-image w-100">
