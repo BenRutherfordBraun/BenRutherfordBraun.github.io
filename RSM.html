@@ -20,6 +20,9 @@
             max-width: 100%; 
             object-fit: contain; 
         }
+
+        /* Custom styling for feature bullet lists */
+        .feature-list li { margin-bottom: 0.75rem; }
     </style>
 </head>
 <body>
@@ -38,7 +41,7 @@
     <header class="hero-section text-center">
         <div class="container">
             <h1 class="display-5 fw-bold text-info">Rear Sensor Module PCB</h1>
-            <p class="lead text-secondary">Embedded STM32 telemetry node for real-time vehicle dynamics</p>
+            <p class="lead text-light">Embedded STM32 telemetry node for real-time vehicle dynamics</p>
         </div>
     </header>
 
@@ -54,30 +57,42 @@
                     </p>
                 </div>
                 
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center mb-4">
                     <img src="images/RSMImageCropped.png" alt="3D PCB Render" class="img-fluid project-image top-image">
-                    <p class="text-secondary mt-3"><em>3D Board View</em></p>
+                    <p class="text-white mt-3 fs-5"><em>3D Board View</em></p>
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center mb-4">
                     <img src="images/RSMLayout.png" alt="PCB Layout with GND polygons hidden" class="img-fluid project-image top-image">
-                    <p class="text-secondary mt-3"><em>PCB Routing (GND Polygons Disabled)</em></p>
+                    <p class="text-white mt-3 fs-5"><em>PCB Routing (GND Polygons Disabled)</em></p>
+                </div>
+                
+                <!-- New Physical Board Images -->
+                <div class="col-md-6 text-center mb-4">
+                    <img src="images/RSMReal.png" alt="Manufactured and Assembled RSM PCB" class="img-fluid project-image top-image">
+                    <p class="text-white mt-3 fs-5"><em>Physical Board Bring-Up</em></p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <img src="images/RSMOnCar.png" alt="RSM PCB Mounted on Vehicle" class="img-fluid project-image top-image">
+                    <p class="text-white mt-3 fs-5"><em>Integrated into Vehicle Harness</em></p>
                 </div>
             </div>
 
             <!-- Hardware Revisions Section -->
             <div class="row mt-5">
                 <div class="col-12">
-                    <h3 class="mb-4 text-info">Hardware Revisions & Engineering Changes</h3>
+                    <h3 class="mb-4 text-info fw-bold">Hardware Revisions & Engineering Changes</h3>
                 </div>
             </div>
 
             <!-- Change 1: MCU -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">Microcontroller Migration</h4>
-                    <p class="text-secondary fs-5">
-                        Upgraded the core architecture from an STM32F4 to an STM32H5 microcontroller. This transition provided enhanced processing capabilities for local IMU kinematics and integrated seamlessly with a dedicated CAN transceiver to guarantee robust, high-speed data transmission to the main vehicle control unit.
-                    </p>
+                    <h3 class="text-white fw-semibold mb-3">Microcontroller Migration</h3>
+                    <ul class="text-light fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Upgraded the core architecture from an STM32F4 to an STM32H5 microcontroller.</li>
+                        <li><span class="bullet-icon">■</span> Provided enhanced processing capabilities for local IMU kinematics.</li>
+                        <li><span class="bullet-icon">■</span> Integrated seamlessly with a dedicated CAN transceiver for robust data transmission.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/RSMMCU.png" alt="STM32H5 MCU Schematic" class="img-fluid project-image w-100">
@@ -87,10 +102,12 @@
             <!-- Change 2: Buck Converters -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">Power Delivery Optimization</h4>
-                    <p class="text-secondary fs-5">
-                        Redesigned the module's power delivery network by optimizing the topologies of the 5V and 3.3V buck converters. This revision significantly reduced heat generation and stabilized the voltage rails to ensure clean power delivery for sensitive onboard analog instrumentation.
-                    </p>
+                    <h3 class="text-white fw-semibold mb-3">Power Delivery Optimization</h3>
+                    <ul class="text-light fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Redesigned the module's power delivery network.</li>
+                        <li><span class="bullet-icon">■</span> Optimized the topologies of the 5V and 3.3V step-down buck converters.</li>
+                        <li><span class="bullet-icon">■</span> Significantly reduced heat generation and stabilized voltage rails for analog instrumentation.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/RSMPower.png" alt="Buck Converter Schematic" class="img-fluid project-image w-100">
@@ -100,10 +117,12 @@
             <!-- Change 3: USB -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">USB Interface Integration</h4>
-                    <p class="text-secondary fs-5">
-                        Re-engineered the USB interface schematic to guarantee proper hardware-level enumeration and reliable serial communication with the newly integrated STM32H5 architecture, facilitating easier firmware deployment and diagnostic debugging.
-                    </p>
+                    <h3 class="text-white fw-semibold mb-3">USB Interface Integration</h3>
+                    <ul class="text-light fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Re-engineered the USB interface schematic to guarantee proper hardware-level enumeration.</li>
+                        <li><span class="bullet-icon">■</span> Ensured reliable serial communication with the newly integrated STM32H5 architecture.</li>
+                        <li><span class="bullet-icon">■</span> Facilitated easier firmware deployment and diagnostic debugging directly via USB.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/RSMUSB.png" alt="USB Interface Schematic" class="img-fluid project-image w-100">
@@ -113,10 +132,12 @@
             <!-- Change 4: Op Amp -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h4 class="text-light">Analog Signal Conditioning</h4>
-                    <p class="text-secondary fs-5">
-                        During physical board testing, the operational amplifier was found to be clipping on the 5V rail. I resolved this hardware bug by rerouting the op-amp's power supply to the 24V rail, providing the necessary voltage headroom to capture the full analog signal range without distortion.
-                    </p>
+                    <h3 class="text-white fw-semibold mb-3">Analog Signal Conditioning</h3>
+                    <ul class="text-light fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Discovered analog signal clipping on the 5V rail during physical board testing.</li>
+                        <li><span class="bullet-icon">■</span> Resolved the hardware bug by rerouting the operational amplifier's power supply to the 24V rail.</li>
+                        <li><span class="bullet-icon">■</span> Provided the necessary voltage headroom to capture the full analog signal range without distortion.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/RSMOpAmp.png" alt="24V Op Amp Schematic" class="img-fluid project-image w-100">
