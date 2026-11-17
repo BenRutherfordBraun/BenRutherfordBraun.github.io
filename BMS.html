@@ -75,9 +75,9 @@
                 <div class="col-md-4">
                     <h3 class="text-white fw-semibold mb-3">MCU Control</h3>
                     <ul class="text-light fs-5 text-start list-unstyled feature-list">
-                        <li><span class="bullet-icon">■</span> Integrated STM32 microcontroller for centralized fault handling and state-of-charge calculation.</li>
-                        <li><span class="bullet-icon">■</span> Interfaces with the high-voltage telemetry ICs via isolated SPI protocols.</li>
-                        <li><span class="bullet-icon">■</span> Broadcasts real-time battery health data across the vehicle's CAN network.</li>
+                        <li><span class="bullet-icon">■</span> Redid pinout for STM32H7 MCU, integrating SPI, USB, SDMMC, and 2 independant CAN Buses</li>
+                        <li><span class="bullet-icon">■</span> Implemented a PWM drive for the battery cooling fans so the MCU can adjust speed based on cell temperatures.</li>
+                        <li><span class="bullet-icon">■</span> Enabled the MCU to communicate with the new ADBMS2950 shunt ressitor PCB through isoSPI.</li>
                     </ul>
                 </div>
                 <div class="col-md-8 text-center">
@@ -90,9 +90,9 @@
                 <div class="col-md-4">
                     <h3 class="text-white fw-semibold mb-3">isoSPI Communication</h3>
                     <ul class="text-light fs-5 text-start list-unstyled feature-list">
-                        <li><span class="bullet-icon">■</span> Utilizes ADBMS6822 transceivers for robust differential signaling in high-noise environments.</li>
+                        <li><span class="bullet-icon">■</span> Fully Designed the new ADBMS6822 isoSPI transceiver for robust differential signaling in high-noise environments.</li>
                         <li><span class="bullet-icon">■</span> Implements LC Pi-filters (100nF, MPZ ferrite beads, 4.7µF bypass) to suppress high-frequency switching noise.</li>
-                        <li><span class="bullet-icon">■</span> Daisy-chained architecture supports scalable accumulator segment monitoring.</li>
+                        <li><span class="bullet-icon">■</span> Daisy-chained and reversable architecture will prevent battery communication faults, enhancing reliability.</li>
                     </ul>
                 </div>
                 <div class="col-md-8 text-center">
@@ -105,9 +105,8 @@
                 <div class="col-md-4">
                     <h3 class="text-white fw-semibold mb-3">isoSPI Isolation</h3>
                     <ul class="text-light fs-5 text-start list-unstyled feature-list">
-                        <li><span class="bullet-icon">■</span> Enforces strict galvanic isolation to protect low-voltage control circuitry from 600V transients.</li>
-                        <li><span class="bullet-icon">■</span> Optimized PCB layout for differential pairs to minimize parasitic capacitance and signal degradation.</li>
-                        <li><span class="bullet-icon">■</span> Meets rigorous FSAE accumulator safety clearance and creepage requirements.</li>
+                        <li><span class="bullet-icon">■</span> Designed a new isoSPI transformer circuit to be implemented across all 12 battery PCBs.</li>
+                        <li><span class="bullet-icon">■</span> Implemented a lowpass filter, TVS diodes, and impedance matching resistors to maintain signal integrity.</li>
                     </ul>
                 </div>
                 <div class="col-md-8 text-center">
@@ -119,9 +118,10 @@
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
                     <h3 class="text-white fw-semibold mb-3">Tractive System Current Sense</h3>
-                    <p class="text-light fs-5">
-                        Integrated the highly accurate ADBMS2950 IC to process precision high-voltage telemetry. This architecture performs tractive system current sensing through a custom shunt resistor PCB, feeding critical load data to the onboard processor for state-of-charge tracking and overcurrent fault diagnostics.
-                    </p>
+                    <ul class="text-light fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Adjusted current sensign circuitry to integrate the new DHAB S/124 hall effect sensor's transfer function.</li>
+                        <li><span class="bullet-icon">■</span> Performed power calculations and circuit simulations to ensure hardware current thresholds are accurate.</li>
+                    </ul>
                 </div>
                 <div class="col-md-8 text-center">
                     <img src="images/BMSCurrentSense.png" alt="ADBMS2950 Current Sense Schematic" class="img-fluid project-image w-100">
@@ -131,4 +131,61 @@
             <!-- Feature 5: Shutdown Logic -->
             <div class="row align-items-center feature-row">
                 <div class="col-md-4">
-                    <h3 class="text-white fw-semibold mb-
+                    <h3 class="text-white fw-semibold mb-3">Hardware-Controlled Shutdown Logic</h3>
+                    <ul class="text-light fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> Revised shutdown circuit logic to ensure  the vehicle shutdown loop is normally open.</li>
+                        <li><span class="bullet-icon">■</span> Redid latch reset button circuitry, ensuring shutdown latches can be reset from outside the battery.</li>
+                        <li><span class="bullet-icon">■</span> Created a truth table to validate performance for different inputs.</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 text-center">
+                    <img src="images/BMSShutdownLatch.png" alt="Hardware Shutdown Latch Schematic" class="img-fluid project-image w-100">
+                </div>
+            </div>
+
+            <!-- Feature 6: Fan eFuse -->
+            <div class="row align-items-center feature-row">
+                <div class="col-md-4">
+                    <h3 class="text-white fw-semibold mb-3">Fan Control eFuse</h3>
+                    <ul class="text-light fs-5 text-start list-unstyled feature-list">
+                        <li><span class="bullet-icon">■</span> TPS25983 eFuse regulates power to 10 accumulator cooling fans throughout the battery.</li>
+                        <li><span class="bullet-icon">■</span> Adjusted eFuse slew rate and timout time to account for inductive start up current .</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 text-center">
+                    <img src="images/FanEfuse.png" alt="Fan eFuse Schematic" class="img-fluid project-image w-100">
+                </div>
+            </div>
+
+            <!-- Key Skills Bottom Section -->
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h4 class="mb-3 text-info">Key Skills & Takeaways</h4>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>High-Voltage PCB Design:</strong> Architecting 4-layer boards to safely manage 600V systems with strict clearance, creepage, and galvanic isolation requirements.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Safety Critical Logic:</strong> Designing and validating latching hardware fault detection using discrete logic gates and analog comparators.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary">
+                            <span class="bullet-icon">■</span> <strong>Telemetry Integration:</strong> Bridging the high-voltage and low-voltage domains using isoSPI and CAN communication protocols for real-time monitoring.
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary border-bottom-0">
+                            <span class="bullet-icon">■</span> <strong>Component Selection:</strong> Implementing specialized automotive-grade ICs like the ADBMS6822 to handle complex EV accumulator monitoring reliably.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4 text-center border-top border-secondary mt-auto">
+        <p class="mb-0 text-secondary">&copy; 2026 Ben Rutherford-Braun</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
