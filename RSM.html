@@ -91,7 +91,7 @@
                     <ul class="text-light fs-5 text-start list-unstyled feature-list">
                         <li><span class="bullet-icon">■</span> Upgraded the core architecture from an STM32F4 to an STM32H5 microcontroller.</li>
                         <li><span class="bullet-icon">■</span> Provided enhanced processing capabilities for local IMU kinematics.</li>
-                        <li><span class="bullet-icon">■</span> Integrated seamlessly with a dedicated CAN transceiver for robust data transmission.</li>
+                        <li><span class="bullet-icon">■</span> Enabled the transition to a faster FDCAN communication network between ECUs.</li>
                     </ul>
                 </div>
                 <div class="col-md-8 text-center">
@@ -104,9 +104,9 @@
                 <div class="col-md-4">
                     <h3 class="text-white fw-semibold mb-3">Power Delivery Optimization</h3>
                     <ul class="text-light fs-5 text-start list-unstyled feature-list">
-                        <li><span class="bullet-icon">■</span> Redesigned the module's power delivery network.</li>
-                        <li><span class="bullet-icon">■</span> Optimized the topologies of the 5V and 3.3V step-down buck converters.</li>
-                        <li><span class="bullet-icon">■</span> Significantly reduced heat generation and stabilized voltage rails for analog instrumentation.</li>
+                        <li><span class="bullet-icon">■</span> Optomized the power system by switching from 3V3 LDO to 5V/3V3 buck converter.</li>
+                        <li><span class="bullet-icon">■</span> New power distribution provides 90-95% efficiency for the PCBs average load.</li>
+                        <li><span class="bullet-icon">■</span> Validated the buck converter efficiency, slew rate, and transient response with an eload.</li>
                     </ul>
                 </div>
                 <div class="col-md-8 text-center">
@@ -119,9 +119,8 @@
                 <div class="col-md-4">
                     <h3 class="text-white fw-semibold mb-3">USB Interface Integration</h3>
                     <ul class="text-light fs-5 text-start list-unstyled feature-list">
-                        <li><span class="bullet-icon">■</span> Re-engineered the USB interface schematic to guarantee proper hardware-level enumeration.</li>
-                        <li><span class="bullet-icon">■</span> Ensured reliable serial communication with the newly integrated STM32H5 architecture.</li>
-                        <li><span class="bullet-icon">■</span> Facilitated easier firmware deployment and diagnostic debugging directly via USB.</li>
+                        <li><span class="bullet-icon">■</span> Re-engineered the USB interface schematic to interface with the new STM32H7 MCU.</li>
+                        <li><span class="bullet-icon">■</span> Continued to maintain communcation integrity through differential routing and TVS diodes.</li>
                     </ul>
                 </div>
                 <div class="col-md-8 text-center">
